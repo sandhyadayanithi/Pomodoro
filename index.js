@@ -116,3 +116,20 @@ document.querySelector('.long-break').addEventListener('click',()=>{
   clearInterval(myInterval);
   startBtn.textContent='START';
 });
+
+const api_url="http://api.quotable.io/random";
+
+async function loadQuote(url){
+  try{
+    const response = await fetch(url);
+    let data = await response.json();
+    document.querySelector('.quote-p').textContent=`"${data.content}"`;
+    document.querySelector('.quote-a').textContent=`-${data.author}`;
+  }
+  catch{
+    console.log("API error.");
+  }
+}
+loadQuote(api_url);
+
+setInterval(()=> loadQuote(api_url),30000);
