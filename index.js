@@ -123,6 +123,9 @@ async function loadQuote(url){
   try{
     const response = await fetch(url);
     let data = await response.json();
+    if(data.content.length>150){
+      document.querySelector('.quote-p').style.fontSize="18px";
+    }
     document.querySelector('.quote-p').textContent=`"${data.content}"`;
     document.querySelector('.quote-a').textContent=`-${data.author}`;
   }
