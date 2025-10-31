@@ -117,7 +117,7 @@ document.querySelector('.long-break').addEventListener('click',()=>{
   startBtn.textContent='START';
 });
 
-const api_url="http://api.quotable.io/random";
+const api_url="https://pomodoro-random-quote.onrender.com/quote";
 
 async function loadQuote(url){
   try{
