@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --env-file=.env quoteBackend.js"
+    "start": "nodemon quoteBackend.js"
   },
   "author": "",
   "license": "MIT",
