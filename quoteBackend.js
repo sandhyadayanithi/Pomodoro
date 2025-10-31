@@ -9,7 +9,7 @@ const URL=process.env.URL;
 const PORT=process.env.PORT;
 
 const agent = new https.Agent({
-  rejectUnauthorized: false, // <-- ignore expired/invalid certs
+  rejectUnauthorized: false, 
 });
 
 const server=http.createServer(async (req,res)=>{
