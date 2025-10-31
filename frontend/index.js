@@ -1,5 +1,5 @@
-const bells = new Audio('bell.wav'); 
-const click = new Audio('click.wav');
+const bells = new Audio('frontend/bell.wav'); 
+const click = new Audio('frontend/click.wav');
 const startBtn = document.querySelector('.btn-start'); 
 const sessionMin = document.querySelector('.minutes');
 const sessionSec = document.querySelector('.seconds'); 
