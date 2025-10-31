@@ -1,8 +1,6 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
-import https from 'https';
 import http from 'http';
-import cors from 'cors';
 
 dotenv.config();
 
