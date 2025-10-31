@@ -1,0 +1,17 @@
+{
+  "name": "node-course",
+  "version": "1.0.0",
+  "description": "learning node.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --env-file=.env quoteBackend.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.1",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.10"
+  }
+}

@@ -6,7 +6,7 @@ import http from 'http';
 dotenv.config();
 
 const URL=process.env.URL;
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 8000;
 
 const agent = new https.Agent({
   rejectUnauthorized: false, 
