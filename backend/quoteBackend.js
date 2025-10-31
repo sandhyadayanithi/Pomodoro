@@ -23,7 +23,6 @@ const server=http.createServer(async (req,res)=>{
       const quote=response.data;
       res.setHeader('Content-Type','application/json');
       res.write(JSON.stringify(quote));
-      console.log("Success");
       res.end();
     }
     catch(err){
@@ -31,11 +30,8 @@ const server=http.createServer(async (req,res)=>{
     }
   }
   else{
-    res.setHeader('Content-Type','application/json');
-    res.write(JSON.stringify({message:"Invalid url."}));
-    res.end();
+    console.log("Invalid url!");
   }
-  
 });
 
 server.listen(PORT,()=>{
