@@ -2,15 +2,12 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import https from 'https';
 import http from 'http';
+import cors from 'cors';
 
 dotenv.config();
 
 const URL=process.env.URL;
 const PORT=process.env.PORT || 8000;
-
-const agent = new https.Agent({
-  rejectUnauthorized: false, 
-});
 
 const server=http.createServer(async (req,res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,7 +16,7 @@ const server=http.createServer(async (req,res)=>{
   
   if(req.url==='/quote'){
     try{
-      const response=await axios.get(URL,{ httpsAgent: agent });
+      const response=await axios.get(URL);
       const quote=response.data;
       res.setHeader('Content-Type','application/json');
       res.write(JSON.stringify(quote));
