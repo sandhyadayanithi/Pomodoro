@@ -1,6 +1,7 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 import http from 'http';
+import https from 'https';
 
 dotenv.config();
 
