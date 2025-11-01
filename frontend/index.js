@@ -45,7 +45,7 @@ function appTimer(){
           state=true;
           startBtn.textContent='START';
           bells.play();
-          alert('Time to focus!');
+          alert('Time to focus');
         }
         else{
           bells.play();
@@ -125,6 +125,9 @@ async function loadQuote(url){
     let data = await response.json();
     if(data.content.length>150){
       document.querySelector('.quote-p').style.fontSize="18px";
+    }
+    else if(data.content.length>180){
+      document.querySelector('.quote-p').style.fontSize="16px";
     }
     document.querySelector('.quote-p').textContent=`"${data.content}"`;
     document.querySelector('.quote-a').textContent=`-${data.author}`;
