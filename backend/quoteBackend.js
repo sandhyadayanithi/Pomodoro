@@ -11,6 +11,19 @@ const agent = new https.Agent({
   rejectUnauthorized: false
 });
 
+const fallbackQuotes = [
+  { content: "Stay curious", author: "Albert Einstein" },
+  { content: "Small steps create big waves", author: "Unknown" },
+  { content: "Innovation starts from discomfort", author: "Brene Brown" },
+  { content: "The best way to predict the future is to create it", author: "Peter Drucker" },
+  { content: "Do what you can, with what you have, where you are", author: "Theodore Roosevelt" },
+  { content: "Success is not final, failure is not fatal: It is the courage to continue that counts", author: "Winston Churchill" },
+  { content: "Dream big and dare to fail", author: "Norman Vaughan" },
+  { content: "Action is the foundational key to all success", author: "Pablo Picasso" },
+  { content: "You miss 100% of the shots you don’t take", author: "Wayne Gretzky" },
+  { content: "Believe you can and you're halfway there", author: "Theodore Roosevelt" }
+];
+
 const server=http.createServer(async (req,res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -26,6 +39,10 @@ const server=http.createServer(async (req,res)=>{
     }
     catch(err){
       console.log(err);
+      const randomQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+      res.setHeader('Content-Type','application/json');
+      res.write(JSON.stringify(randomQuote));
+      res.end();
     }
   }
   else{
