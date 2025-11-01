@@ -7,6 +7,10 @@ dotenv.config();
 const URL=process.env.URL;
 const PORT=process.env.PORT || 8000;
 
+const agent = new https.Agent({
+  rejectUnauthorized: false
+});
+
 const server=http.createServer(async (req,res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -14,7 +18,7 @@ const server=http.createServer(async (req,res)=>{
   
   if(req.url==='/quote'){
     try{
-      const response=await axios.get(URL);
+      const response=await axios.get(URL, { httpsAgent: agent });
       const quote=response.data;
       res.setHeader('Content-Type','application/json');
       res.write(JSON.stringify(quote));
